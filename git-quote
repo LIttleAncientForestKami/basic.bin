@@ -1,0 +1,47 @@
+#!/bin/bash
+
+TMP=youSeeWhatsAlreadyGone
+DEBUG=0
+
+# Tomasz Borek. Owijka na wrzucanie do repo, doklejająca cytaty. :-)
+# listopad 2012.
+
+function debug() {
+	if [ $DEBUG -eq 1 ]
+	  then
+	    echo $1
+	    echo "Commit message was: "
+	    cat $TMP
+	    rm $TMP
+	    exit
+	fi
+}
+
+if [ $# -eq 0 ]
+then
+  echo "Składnia: `basename $0` [-d] opis_zmiany [plik1] [plik2] ... [plikN]. Bez plików oznacza git commit -a."
+  echo "          -d -> debug, wypisuje na ekran, nie wykonuje zmian."
+  exit
+fi
+
+if [ "$1" == "-d" ]
+then
+  DEBUG=1
+  shift
+fi
+
+echo "$1 " > $TMP
+echo >> $TMP
+echo >> $TMP
+echo "$(fortune prQ)" >> $TMP
+
+if [ $# -eq 1 ]
+then
+  debug "1: -a"
+  git commit -aF $TMP
+else
+  debug "params given (beside -d): $#"
+  git commit -F $TMP $*
+fi
+echo "Zmieniono indeks. $*"
+rm $TMP 
