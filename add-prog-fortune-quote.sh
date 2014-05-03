@@ -20,13 +20,12 @@
 #
 #######################################################################
 
-FORTUNE_PATH=.
-# /usr/share/games/fortune
+FORTUNE_PATH=/usr/share/games/fortunes
 
-TXT=$FORTUNE_PATH/prQ
+TXT=prQ # this file is in Git, so we want to keep it up to date
 DAT=$FORTUNE_PATH/prQ.dat
 
-echo "Assuming fortune located in $FORTUNE_PATH, and file with quotes being prQ"
+echo "Assuming fortune located in $FORTUNE_PATH, file with quotes being prQ and you being in sudoers"
 echo "Quote text please?"
 read QUOTE
 echo "Author?"
@@ -36,4 +35,4 @@ echo "%
 $QUOTE 
 		 -- $AUTHOR 
 " >> $TXT
-strfile -c % $TXT $DAT
+sudo strfile -c % $TXT $DAT
