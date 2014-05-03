@@ -27,11 +27,13 @@ TXT=$FORTUNE_PATH/prQ
 DAT=$FORTUNE_PATH/prQ.dat
 
 echo "Assuming fortune located in $FORTUNE_PATH, and file with quotes being prQ"
-# echo "Quote text please?"
-# read $QUOTE
+echo "Quote text please?"
+read QUOTE
+echo "Author?"
+read AUTHOR
 
 echo "%
- cytat 
-		 -- autor 
+$QUOTE 
+		 -- $AUTHOR 
 " >> $TXT
 strfile -c % $TXT $DAT
