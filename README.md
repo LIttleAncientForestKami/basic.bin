@@ -27,3 +27,8 @@ Remarks:
 * moving to fortune dir allows fortune to use it simply, with no path to fortune file given, just `fortune yourFortuneFile`, no `fortune your/path/to/yourFortuneFile`
 
 Again - credits for this README section go to Qrwe from Ubuntu Forums.
+### Adding your own quotes
+Is quite simple, there's script for that. Just run it and it will ask you for quote text and it's author, append them to `prQ` file in proper format and later convert the file into `DAT` format and put it where `fortune` is usually installed.
+
+For different place, modify `$FORTUNE_PATH` in the script.
+For now bulk addition is not supported as I never needed it.
