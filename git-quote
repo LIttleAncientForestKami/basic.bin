@@ -3,13 +3,10 @@
 TMP=youSeeWhatsAlreadyGone
 DEBUG=0
 
-# Tomasz Borek. Owijka na wrzucanie do repo, doklejająca cytaty. :-)
-# listopad 2012.
-
-function debug() {
+function debugAndExit() {
 	if [ $DEBUG -eq 1 ]
 	  then
-	    echo $1
+	    echo "$1"
 	    echo "Commit message was: "
 	    cat $TMP
 	    rm $TMP
@@ -37,11 +34,13 @@ echo "$(fortune prQ)" >> $TMP
 
 if [ $# -eq 1 ]
 then
-  debug "1: -a"
+  debugAndExit "1: -a"
   git commit -aF $TMP
 else
-  debug "params given (beside -d): $#"
+  debugAndExit "Params (beside -d):
+    total: $#
+    given: $*"
   git commit -F $TMP $*
 fi
 echo "Zmieniono indeks. $*"
-rm $TMP 
+rm $TMP
