@@ -176,3 +176,7 @@ GC is not a generic solution for memory leaks but a (correct) GC is a generic so
       -- Henry Baker 
 %
 
+The undecidability of liveness is a corollary of the halting problem. 
+      -- Richard Jones, Anthony Hoskins, Eliott Moss - The Garbage Collection Handbook 
+%
+
