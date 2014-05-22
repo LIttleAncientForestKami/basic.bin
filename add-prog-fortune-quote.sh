@@ -23,16 +23,18 @@
 FORTUNE_PATH=/usr/share/games/fortunes
 
 TXT=prQ # this file is in Git, so we want to keep it up to date
-DAT=$FORTUNE_PATH/prQ.dat
+DAT=prQ.dat
 
-echo "Assuming fortune located in $FORTUNE_PATH, file with quotes being prQ and you being in sudoers"
+echo "Assuming fortune located in $FORTUNE_PATH, file with quotes being prQ and you being in sudoers. Licence GPLv3."
 echo "Quote text please?"
 read QUOTE
 echo "Author?"
 read AUTHOR
 
-echo "%
-$QUOTE 
-		 -- $AUTHOR 
+echo "$QUOTE 
+      -- $AUTHOR 
+%
 " >> $TXT
 sudo strfile -c % $TXT $DAT
+echo Installing files to $FORTUNE_PATH
+sudo cp prQ* $FORTUNE_PATH
