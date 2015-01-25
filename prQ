@@ -1,8 +1,8 @@
 Computers are useless.  They can only give you answers.
-      -- Pablo Picasso
+	    -- Pablo Picasso
 %
 Computers are like bikinis. They save people a lot of guesswork.
-      -- Sam Ewing
+	   -- Sam Ewing
 %
 They have computers, and they may have other weapons of mass destruction.
       -- Janet Reno
@@ -175,8 +175,9 @@ When it became clear that computers were going to be flying commercial aircraft,
 GC is not a generic solution for memory leaks but a (correct) GC is a generic solution for 'dangling pointers'. Just as there is no general solution for 'loops' (due to undecidability), there is no general solution for 'leaks'. 
       -- Henry Baker 
 %
-
 The undecidability of liveness is a corollary of the halting problem. 
       -- Richard Jones, Anthony Hoskins, Eliott Moss - The Garbage Collection Handbook 
 %
+A tool-maker succeeds as, and only as, the users of his tool succeed with his aid 
+		 -- Fred Brooks 
 
