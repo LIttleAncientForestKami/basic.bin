@@ -179,5 +179,10 @@ The undecidability of liveness is a corollary of the halting problem.
       -- Richard Jones, Anthony Hoskins, Eliott Moss - The Garbage Collection Handbook 
 %
 A tool-maker succeeds as, and only as, the users of his tool succeed with his aid 
-		 -- Fred Brooks 
-
+		 -- Fred Brooks
+%
+If you have too many special cases, you are doing it wrong. 
+		 -- Craig Zerouni 
+%
+Ostatecznie o sprawności działania nowego systemu zadecyduje realne działanie. 
+		 -- BIP miasta Kraków 
