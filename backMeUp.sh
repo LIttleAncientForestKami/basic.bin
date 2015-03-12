@@ -19,4 +19,7 @@ mv ~/bin/bootscript/RESULTS.txt .
 # This creates RESULTS.txt with MBR/Grub/partition information. 
 
 # software installed
+sudo apt-clone clone apt-clone-state-ubuntu-$(lsb_release -sr)-$(date +%F).tar.gz
 
+# restore: sudo apt-clone restore apt-clone-state-ubuntu.tar.gz
+# sudo apt-clone restore-new-distro apt-clone-state-ubuntu.tar.gz $(lsb_release -sc)
