@@ -194,3 +194,7 @@ Nobody really knows what the Bourne shell's grammar is. Even examination of the 
       -- Tom Duff, "Rc-A Shell for Plan 9 and UNIX systems" 1990 EUUG Conf., London 
 %
 
+Anyone who attempts to generate random numbers by deterministic means is, of course, living in a state of sin. 
+      -- John von Neumann 
+%
+
