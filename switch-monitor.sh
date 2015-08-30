@@ -1,0 +1,1 @@
+./screen/switch-monitor/switch-monitor.sh

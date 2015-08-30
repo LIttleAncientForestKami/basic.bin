@@ -1,0 +1,5 @@
+#!/bin/bash
+i=0
+for f in $(ls -R | egrep "\.sh$"); do
+  ln -s $(find -name $f) $f
+done
