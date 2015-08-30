@@ -1,5 +1,7 @@
 #!/bin/bash
-i=0
 for f in $(ls -R | egrep "\.sh$"); do
   ln -s $(find -name $f) $f
 done
+
+# Files that are executable but don't end with .sh:
+ln -s $(find -name git-quote) git-quote
