@@ -11,8 +11,6 @@ threadsPlease() {
 # display 2nd to last line, it's most CPU intensive thread
 THREAD_LINE=$( threadsPlease $1 | grep -v - | tail -1)
 
-echo $THREAD_LINE
-exit
 THREAD10=$(echo $THREAD_LINE | awk '{print $1}')
 THREAD16=$(printf '%x\n' $THREAD10)
 
