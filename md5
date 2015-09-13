@@ -1,0 +1,17 @@
+#!/bin/bash
+
+FN=./md5check
+USAGE="Open $FN file, fill in MD5 sums, save, quit and call \"md5 -c $FN\"
+
+\n\nUsage:\n\tmd5 '*binaryFile' ' srcFile'
+
+\nFormat ([*| ] -> binary or text):\n\tfile MD5 from website [*| ]file name
+
+\nExamples (_ stands for space):\n\t defd21ad8d2b6f28cc0a16b96f652099_*binaryFile\n\t 56fff4cdb24db3018e949356057dfbd0__textFile"
+
+echo -e $USAGE
+rm -f $FN
+for f in "$@"
+do
+  echo MD5? "$f" >> $FN
+done
