@@ -189,24 +189,24 @@ Ostatecznie o sprawności działania nowego systemu zadecyduje realne działanie
 The lesson that has been repeated most often during bash development is that there are dark corners in the Bourne Shell, and people use all of them. 
       -- Chet Ramey, FSF 
 %
-
 Nobody really knows what the Bourne shell's grammar is. Even examination of the source code is little help. 
       -- Tom Duff, "Rc-A Shell for Plan 9 and UNIX systems" 1990 EUUG Conf., London 
 %
-
 Anyone who attempts to generate random numbers by deterministic means is, of course, living in a state of sin. 
       -- John von Neumann 
 %
-
 All architecture should be removable, if it fails, or if we get a much better idea. 
       -- Tom Gilb 
 %
-
 Others have 20 years of Java experience, Java has 20 years of experiences. 
       -- LAFK 
 %
-
-%
 While I’ve always known open source software is great, I’m increasingly starting to appreciate that open source developers are also great. 
 		 -- Paul Fenwick, @pjf 
-
+%
+Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away. 
+      -- Antoine de Saint-Exupéry, Airman’s Odyssey 
+%
+If you can’t explain something to a first year student, then you haven’t really understood it. 
+      -- Richard Feynman 
+%

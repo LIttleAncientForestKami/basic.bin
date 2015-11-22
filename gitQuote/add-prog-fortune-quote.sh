@@ -22,7 +22,11 @@
 
 FORTUNE_PATH=/usr/share/games/fortunes
 
-TXT=prQ # this file is in Git, so we want to keep it up to date
+TXT=${1:-"/home/$(whoami)/bin/gitQuote/"}prQ # this file is in Git, so we want to keep it up to date
+
+echo Location of prQ file is:  $TXT. 
+echo If you want to change run - $(basename $0) /your/location/ - end with /, do NOT add prQ
+
 DAT=prQ.dat
 
 echo "Assuming fortune located in $FORTUNE_PATH, file with quotes being prQ and you being in sudoers. Licence GPLv3."
