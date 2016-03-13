@@ -36,7 +36,7 @@ function debugAndExit() {
 
 if [ $# -eq 0 ]
 then
-  echo "Usage: `basename $0` [-d] commit_message [file1] [file2] ... [fileN]. No files => git commit -a."
+  echo "Usage: `basename $0` [-d] commit_message [file1] [file2] ... [fileN]. No files => git commit -aevF."
   echo "          -d -> debug, writes to console only, no changes."
   exit
 fi
@@ -54,13 +54,13 @@ echo "$(fortune prQ)" >> $TMP
 
 if [ $# -eq 1 ]
 then
-  debugAndExit "Only description given: commit -aF"
-  git commit -aF $TMP
+  debugAndExit "Only description given: commit -aevF"
+  git commit -aevF $TMP
 else
-  debugAndExit "Files given => commit -F. Params (beside -d):
+  debugAndExit "Files given => commit -evF. Params (beside -d):
     total: $#
     given: $*"
-  git commit -F $TMP $*
+  git commit -evF $TMP $*
 fi
-echo "Index changed. $*"
+echo "Exit status is $? Parameters passed were $* . Removing temporary file $TMP"
 rm $TMP
