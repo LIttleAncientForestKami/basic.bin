@@ -215,3 +215,7 @@ Software design is hard and in my experience the way to get better at is through
       -- Bart Bakker @ blog.thesoftwarecraft.com 
 %
 
+The real design action is in the memory sub-system - caches, buses, bandwidth and latency 
+      -- Richard Sites (DEC Alpha Architect) 
+%
+
