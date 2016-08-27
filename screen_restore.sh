@@ -1,1 +1,1 @@
-./screen/screen_restore.sh
+./ubuntu/screen/screen_restore.sh

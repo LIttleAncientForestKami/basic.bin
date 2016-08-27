@@ -1,1 +1,1 @@
-./screen/lock.sh
+./ubuntu/screen/lock.sh

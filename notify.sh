@@ -1,0 +1,1 @@
+./ubuntu/notify.sh
