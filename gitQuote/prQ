@@ -219,3 +219,15 @@ The real design action is in the memory sub-system - caches, buses, bandwidth an
       -- Richard Sites (DEC Alpha Architect) 
 %
 
+Peer code reviews are the single biggest thing you can do to improve your code. 
+      -- Jeff Atwood 
+%
+
+Any stupid can write the program that computer understands but only good programmers write code that humans understand 
+      -- Martin Fowler 
+%
+
+When debugging, novices insert corrective code; experts remove defective code. 
+      -- Richard Pattis 
+%
+
