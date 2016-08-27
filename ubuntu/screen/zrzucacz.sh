@@ -1,5 +1,6 @@
 #!/bin/bash
 
+NOTIFY=/home/tammo/bin/notify.sh
 FOLDER=/home/tammo/Obrazy/DPR_dziś
 cd $FOLDER
 
@@ -9,10 +10,10 @@ export DISPLAY=:0.0
 IDLE_MINUTES=$(expr $(xprintidle) / 1000 / 60)
 
 if [ $IDLE_MINUTES -le 14 ]; then
-    notify.sh "Zrzut ekranu" "z $(date)" insert-image
+    $NOTIFY "Zrzut ekranu" "z $(date)" insert-image
     scrot '%Y-%m-%d %H:%M.png' -q 20
 else
-    notify.sh "Zrzut zatrzymany" "Bezczynnie minut: $IDLE_MINUTES" user-idle
+    $NOTIFY "Zrzut zatrzymany" "Bezczynnie minut: $IDLE_MINUTES" user-idle
 fi
 
 # http://manpages.ubuntu.com/manpages/dapper/man5/timeouts.5.html
