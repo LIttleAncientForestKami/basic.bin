@@ -1,1 +1,1 @@
-./screen/zrzucacz.sh
+./ubuntu/screen/zrzucacz.sh

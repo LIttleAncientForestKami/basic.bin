@@ -1,1 +1,1 @@
-./screen/switch-monitor/switch-monitor.sh
+./ubuntu/screen/switch-monitor/switch-monitor.sh
