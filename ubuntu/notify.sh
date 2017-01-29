@@ -8,4 +8,4 @@ export $(egrep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u $LOGNAME xfce4-sessi
 # Po jakimś czasie sprawdź czy libnotify poprawili i czy można nadpisywać notyfikacje
 # rozważ zabicie notify-osd kiedyś, by nadpisać notkę
 
-notify-send "${1:-Bez tematu}" "${2:-Bez treści}" --icon=${3:-image-loading}
+notify-send "${1:-'Bez tematu'}" "${2:-'Bez treści'}" --icon=${3:-image-loading}
