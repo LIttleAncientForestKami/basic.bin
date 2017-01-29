@@ -5,7 +5,7 @@
 
 function debug() {
     echo checking $1
-    curl -w @netDebug.conf -o /dev/null -s $1
+    curl -w @/home/tammo/bin/ubuntu/netDebug.conf -o /dev/null -s $1
 }
 
 debug $1
