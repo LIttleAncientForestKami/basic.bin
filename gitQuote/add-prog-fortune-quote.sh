@@ -36,7 +36,7 @@ echo "Author?"
 read AUTHOR
 
 echo "$QUOTE 
-      -- $AUTHOR 
+    -- $AUTHOR 
 %
 " >> $TXT
 sudo strfile -c % $TXT $DAT
