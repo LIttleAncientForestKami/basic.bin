@@ -1,0 +1,46 @@
+[data-background="green"]
+== Organizacja
+
+Przerwy, tempo, pytania - jak chcecie
+
+=== O mnie
+
+image::lafk_pl.png[]
+
+=== O Was?
+[%step]
+. Kim jesteś?
+. Twe imię?
+. Czemu jesteś tutaj?
+
+include::szkolenie.adoc[]
+
+[data-background="red"]
+=== Szkolenie jest dla Was!
+
+Jak w temacie. Jest dla Was. Was! Wyciągnijcie ile można!
+
+=== Repeta i Retro
+
+20 minut dziennie, 20 minut na koniec
+
+CAUTION: będą kwizy, niniejszym ostrzegłem! :-)
+
+=== Retrospektywa jedno
+
+Realia drugie.
+
+[IMPORTANT]
+.Zmiana jest możliwa!
+====
+Zależy Ci na czymś? Chcesz coś zmienić? Dodać? Odjąć?
+Działaj, miast narzekać na koniec. Ja mogę zmienić slajdy! Tylko muszę wiedzieć dokładnie czego dusza chce.
+
+TIP: Rozumiem nieśmiałość, niepewność, szaman z innej wioski, a może powiesz co po próżnicy, może to mam w slajdach... ale nie zaboli się upewnić i wiedzieć, miast czekać i się nie doczekać.
+====
+
+=== Pytania?
+
+image::question-mark.jpg[]
+
+TIP: Ten slajd zwykle pojawia się przy okazji podsumowania itp. Czyli rzadko. Nie czekajcie nań!

@@ -1,0 +1,24 @@
+= x
+:author: Tomasz Borek, @LAFK_pl, 
+:email: http://lafkblogs.wordpress.com
+:toc: preamble
+:toc-title: Spis treści
+:hardbreaks:
+:icons: font
+:imagesdir: ./img/
+:docinfo:
+:source-highlighter: highlightjs
+:backend: revealjs
+:revealjs_theme: white
+:revealjs_slideNumber: true
+
+Hasłowy opis szkolenia
+
+include::org.adoc[]
+
+include::x.adoc[]
+
+
+=== Pytania?
+
+image::question-mark.jpg[]
