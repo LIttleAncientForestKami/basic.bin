@@ -1,0 +1,5 @@
+== Maszyna wirtualna
+
+. `hasło`
+. `przypomnij`
+. `system`
