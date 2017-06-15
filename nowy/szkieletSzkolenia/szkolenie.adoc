@@ -2,26 +2,14 @@
 [abstract]
 == O szkoleniu w punktach
 
-. Administracja serwerem aplikacji 
-. WildFly 10
-. certyfikowanym na JEE
-. z obsługą JNDI, 
-. JMS, HornetQ
-. wydajnością
-. wysoką dostępnością
-. i monitorowaniem
+. moduł 1
+. moduł 2
+...
 
 CAUTION: *Będziecie sobie rączki brudzić*
 
 === Łapki w górę, kto
 [%step]
-. kto pracował z Ważką?
-.. JBossem?
-.. innym serwerem aplikacji?
-.. TomEEm?
-.. Tomcatem?
-. podrasowywał lub podkręcał chociaż wirtualne maszyny Javy?
-. bawił się w wysoką wydajność na JVMie?
-.. jak wysoką?
-. ogarniał klastrowanie w ogóle?
-.. na jaką skalę?
+. ankieta przedszkoleniowa
+. doświadczenie
+. głębokość

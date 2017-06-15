@@ -28,19 +28,23 @@ CAUTION: będą kwizy, niniejszym ostrzegłem! :-)
 
 === Retrospektywa jedno
 
-Realia drugie.
+Realia drugie. Nie chciałbym podczas retro słyszeć, że:
+
+[%step]
+. brakowało mi X
+. może masz na slajdach, czekałem, ale nie masz
+. bo tam w pracę wpadłem i nie wiedziałem... zapytaj!
 
 [IMPORTANT]
 .Zmiana jest możliwa!
 ====
-Zależy Ci na czymś? Chcesz coś zmienić? Dodać? Odjąć?
-Działaj, miast narzekać na koniec. Ja mogę zmienić slajdy! Tylko muszę wiedzieć dokładnie czego dusza chce.
-
-TIP: Rozumiem nieśmiałość, niepewność, szaman z innej wioski, a może powiesz co po próżnicy, może to mam w slajdach... ale nie zaboli się upewnić i wiedzieć, miast czekać i się nie doczekać.
+Mogę zmienić slajdy! Tylko muszę wiedzieć dokładnie czego dusza chce.
 ====
 
 === Pytania?
 
 image::question-mark.jpg[]
 
-TIP: Ten slajd zwykle pojawia się przy okazji podsumowania itp. Czyli rzadko. Nie czekajcie nań!
+TIP: zwykle pojawia się przy okazji podsumowania. Czyli rzadko. Nie czekajcie nań!
+
+CAUTION: a jak nie będzie pytań...

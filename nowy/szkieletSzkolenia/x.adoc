@@ -16,8 +16,13 @@ Hasłowy opis szkolenia
 
 include::org.adoc[]
 
-include::x.adoc[]
+include::mods/wpro.adoc[]
 
+=== Pytania?
+
+image::question-mark.jpg[]
+
+include::mods/??.adoc[]
 
 === Pytania?
 
