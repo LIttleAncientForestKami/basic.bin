@@ -7,6 +7,10 @@ Przerwy, tempo, pytania - jak chcecie
 
 image::lafk_pl.png[]
 
+=== Ja w sieci
+
+image::LAFK_pl_wSieci.png[]
+
 === O Was?
 [%step]
 . Kim jesteś?
