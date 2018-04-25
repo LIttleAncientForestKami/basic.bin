@@ -27,10 +27,9 @@ function debugAndExit() {
 	if [ $DEBUG -eq 1 ]
 	  then
 	    echo "$1"
-	    echo "Commit message was: "
-	    cat $TMP
+        echo "Commit message was: $(< $TMP)"
 	    rm $TMP
-	    exit
+	    exit 0
 	fi
 }
 
@@ -44,6 +43,7 @@ fi
 if [ "$1" == "-d" ]
 then
   DEBUG=1
+  set -v
   shift
 fi
 
@@ -57,7 +57,8 @@ then
   debugAndExit "Only description given: commit -aevF"
   git commit -aevF $TMP
 else
-  debugAndExit "Files given => commit -evF. Params (beside -d):
+  shift # skipping commit msg
+  debugAndExit "Files given => commit -evF. Params (beside -d and commit message):
     total: $#
     given: $*"
   git commit -evF $TMP $*
