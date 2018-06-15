@@ -12,7 +12,7 @@ IDLE_MINUTES=$(expr $(xprintidle) / 1000 / 60)
 if [ $IDLE_MINUTES -le 14 ]; then
     $NOTIFY "Zrzut ekranu" "z $(date)" insert-image
     scrot '%Y-%m-%d %H:%M.png' -q 20
-else
+ else
     $NOTIFY "Zrzut zatrzymany" "Bezczynnie minut: $IDLE_MINUTES" user-idle
 fi
 
