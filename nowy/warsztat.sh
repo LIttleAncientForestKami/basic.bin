@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#set -x
 
 getopt --test > /dev/null
 if [[ $? -ne 4 ]]; then
@@ -8,10 +8,10 @@ if [[ $? -ne 4 ]]; then
      exit 1
 fi
 
-opcje=dvz:c
-ooopcjeee=debug,verbose,zamawia:,chmura
+opcje=dvz:ct:k:
+ooopcjeee=debug,verbose,zamawia:,chmura,temat:,katalog:
 
-PARSED=$(getopt --options=$opcje --longoptions=$ooopcjeee --name "$0" -- "$@")
+PARSED=$(getopt --options=$opcje --longoptions=$ooopcjeee --name "$0" -u -- "$@")
 if [[ $? -ne 0 ]]; then
     #  debug: getopt ma złe argumenty
     exit 2
@@ -28,7 +28,7 @@ while true; do
             ;;
         -z|--zamawia)
             z=y
-			kto_zleca=$2
+	    kto_zleca=$2
             shift 2
             ;;
         -c|--chmura)
@@ -39,26 +39,40 @@ while true; do
             v=y
             shift
             ;;
+    	-t|--temat)
+	    t=$2
+	    if [[ -n k ]]; then
+		echo "-t/--temat ustawia katalog również, ale ponieważ znalazłem opcję -k/--katalog to tym razem tego nie zrobię (tamte opcje mają precedens)"
+	    else
+	        echo " k=$(awk '{print $1}')"
+	    fi
+	    shift 2
+	    ;;
+    	-k|--katalog)
+	    k=$2
+	    shift 2
+	    ;;
         --)
             shift
             break
             ;;
         *)
-            echo "Programming error"
+            echo "Nieprzewidziany tok programu: $1"
             exit 3
             ;;
     esac
 done
 
-# handle non-option arguments
-if [[ $# -ne 1 ]]; then
-    echo "$0: A single input file is required."
-    exit 4
-fi
+# odkomentuj dla obsługi parametrów dodatkowych (nie opcji)
+#if [[ $# -ne 1 ]]; then
+#    echo "$0: wymagany jest pojedynczy plik wejściowy -> czyli coś zostało do sparsowania po sparsowaniu: $#"
+#    exit 4
+#fi
 
-echo "verbose: $v, zamawia: $kto_zleca, debug: $d, chmura: $c, nazwa: $1"
+echo "gadatliwość: $v, zamawia: $kto_zleca, odrobaczanie: $d, chmura: $c, temat: $t, katalog: $k"
 
 
-
-#echo "$0 nazwaWarsztatu - tworzy katalog warsztatu (jako podkatalog bieżącego) i robi wstępną robotę."
-#cp -r /home/tammo/bin/nowy/szkieletSzkolenia $1
+echo "$0 nazwaWarsztatu - tworzy katalog warsztatu (jako podkatalog bieżącego) i robi wstępną robotę."
+cp -r ~/bin/nowy/szkieletSzkolenia $k
+mv $k/x.adoc $k/$t.adoc
+mv $k/$x-docinfo.html $k/$t-docinfo.html

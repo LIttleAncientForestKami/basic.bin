@@ -1,0 +1,5 @@
+#!/bin/sh
+#Generated with love at pon. sie 27 11:54:28 2018 by JetBrains Toolbox 1.8.3678 (Mar 15 2018)
+
+"/home/tammo/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/181.5087.20/bin/idea.sh" "$@"
+
