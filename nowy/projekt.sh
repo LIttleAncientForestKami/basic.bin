@@ -22,4 +22,7 @@ Autor: @LAFK_pl
 EOF
 
 curl -L -s https://www.gitignore.io/api/java,maven,linux,intellij,vim >> .gitignore
+git init
+git add .
+git-quote "Mantra projektu - Git, Maven, readme with .gitignore and UTF8 and Maven plug-ins set"
 idea pom.xml
