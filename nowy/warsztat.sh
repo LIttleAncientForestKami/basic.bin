@@ -2,6 +2,31 @@
 
 #set -x
 
+instrukcja() {
+    echo "Skrypt tworzy strukturę do nowego warsztatu. Instrukcja obsługi:"
+    echo "$0 nazwaWarsztatu -t TEMAT - tworzy katalog warsztatu (jako podkatalog bieżącego) i robi wstępną robotę, zakładając tytuł warsztatu i folder na bazie TEMATu."
+    echo "$0 nazwaWarsztatu [-d | --debug] [-v | --verbose] [-z | --zamawia NAZWA] [-c | --chmura] [-t | --temat TEMAT] [-k | --katalog NAZWA_KATALOGU]"
+    exit 1
+}
+
+temat-a-katalog() {
+
+    if [[ -z "$t" ]]; then
+        echo Nie podano tematu. Nic nie zrobię.
+        instrukcja
+    elif [[ -z "$k" ]]; then
+        echo nieustawiono katalogu, ustawiam z tematu
+	    k=$t
+    else
+        echo "-t/--temat ustawia katalog również, ale ponieważ znalazłem opcję -k/--katalog to tym razem tego nie zrobię (tamte opcje mają precedens)"
+	fi
+
+}
+
+if [[ $# -eq 0 ]]; then
+    instrukcja
+fi
+
 getopt --test > /dev/null
 if [[ $? -ne 4 ]]; then
  echo "Nie ma getopt? `getopt --test` nie zwraca 4ki."
@@ -28,7 +53,7 @@ while true; do
             ;;
         -z|--zamawia)
             z=y
-	    kto_zleca=$2
+	        kto_zleca=$2
             shift 2
             ;;
         -c|--chmura)
@@ -40,18 +65,13 @@ while true; do
             shift
             ;;
     	-t|--temat)
-	    t=$2
-	    if [[ -n k ]]; then
-		echo "-t/--temat ustawia katalog również, ale ponieważ znalazłem opcję -k/--katalog to tym razem tego nie zrobię (tamte opcje mają precedens)"
-	    else
-	        echo " k=$(awk '{print $1}')"
-	    fi
-	    shift 2
-	    ;;
+	        t=$2
+	        shift 2
+	        ;;
     	-k|--katalog)
-	    k=$2
-	    shift 2
-	    ;;
+	        k=$2
+	        shift 2
+	        ;;
         --)
             shift
             break
@@ -63,6 +83,8 @@ while true; do
     esac
 done
 
+temat-a-katalog
+
 # odkomentuj dla obsługi parametrów dodatkowych (nie opcji)
 #if [[ $# -ne 1 ]]; then
 #    echo "$0: wymagany jest pojedynczy plik wejściowy -> czyli coś zostało do sparsowania po sparsowaniu: $#"
@@ -72,7 +94,6 @@ done
 echo "gadatliwość: $v, zamawia: $kto_zleca, odrobaczanie: $d, chmura: $c, temat: $t, katalog: $k"
 
 
-echo "$0 nazwaWarsztatu - tworzy katalog warsztatu (jako podkatalog bieżącego) i robi wstępną robotę."
-cp -r ~/bin/nowy/szkieletSzkolenia $k
-mv $k/x.adoc $k/$t.adoc
-mv $k/$x-docinfo.html $k/$t-docinfo.html
+cp -r ~/bin/nowy/szkieletSzkolenia "$k"
+mv "$k"/x.adoc "$k"/"$t".adoc
+mv "$k"/x-docinfo.html "$k"/"$t"-docinfo.html

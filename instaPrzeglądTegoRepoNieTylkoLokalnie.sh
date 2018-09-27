@@ -1,0 +1,1 @@
+./ubuntu/instaPrzeglądTegoRepoNieTylkoLokalnie.sh
