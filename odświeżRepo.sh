@@ -1,0 +1,1 @@
+./ubuntu/odświeżRepo.sh
