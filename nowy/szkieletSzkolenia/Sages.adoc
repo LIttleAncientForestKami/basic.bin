@@ -1,0 +1,9 @@
+=== Sages
+
+. Sages - Szkolenia i doradztwo IT dla profesjonalistów
+. dla firm w branży IT I spoza, jak długo w grę wchodzi tworzenie oprogramowania
+
+=== Misja?
+
+[quote, Sages - o nas, http://www.sages.com.pl/sages]
+Misją firmy jest wspieranie procesu projektowania, wytwarzania i wdrażania oprogramowania w przedsiębiorstwach i instytucjach publicznych, aby zminimalizować koszty, czas i ryzyko, związane z tymi przedsięwzięciami.

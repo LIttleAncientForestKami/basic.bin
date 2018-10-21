@@ -1,11 +1,11 @@
-[data-background="green"]
+[background-color="green"]
 == Organizacja
 
 Przerwy, tempo, pytania - jak chcecie
 
 === O mnie
 
-image::lafk_pl.png[]
+image::LAFK_pl.png[]
 
 === Ja w sieci
 
@@ -27,7 +27,7 @@ image::LAFK_pl_wSieci.png[]
 
 include::szkolenie.adoc[]
 
-[data-background="red"]
+[background-color="red"]
 === Szkolenie jest dla Was!
 
 Jak w temacie. Jest dla Was. Was! Wyciągnijcie ile można!

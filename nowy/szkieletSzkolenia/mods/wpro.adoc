@@ -1,4 +1,4 @@
-[data-background="green"]
+[background-color="green"]
 == Tytuł
 
 opisu 1 zdanie
