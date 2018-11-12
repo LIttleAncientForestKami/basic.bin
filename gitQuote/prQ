@@ -250,3 +250,15 @@ The true cost of free software is paid by maitainers.
     -- Kelsey Hightower @kelseyhightower
 %
 
+James Gosling: The interfaces are the things that connect the pieces. You've got a toaster and a power plug in the wall; it's the way you connect. The core of the object-oriented design thing is to try to figure out what the interfaces should be. The actual technology of object-oriented design in a programming language is how you express those interfaces. 
+    --  
+%
+
+The interfaces are the things that connect the pieces. You've got a toaster and a power plug in the wall; it's the way you connect. The core of the object-oriented design thing is to try to figure out what the interfaces should be. The actual technology of object-oriented design in a programming language is how you express those interfaces. 
+    -- James Gosling 
+%
+
+From a developer's point of view, the art is in figuring out the important things to have in the interface. Actually, the hardest part is figuring out the things you should leave out. Because one of the important aspects to designing interfaces is to make them say just enough so that people who want to use them can use them and do what they need to do -- but not so much that it makes it difficult for people to change things. 
+    -- James Gosling 
+%
+
