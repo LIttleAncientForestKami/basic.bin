@@ -1,12 +1,29 @@
 [background-color="green"]
-== Tytuł
+== By się uczyć dalej
 
-opisu 1 zdanie
+książki, lektura, ćwiczenia
 
-=== a
+=== Książki
 
-=== b
+image::a.png[]
 
-=== c
+=== !
 
+image::a.png[]
+
+=== !
+
+image::a.png[]
+
+=== !
+
+image::a.png[]
+
+=== Lektura
+
+=== Ćwiczenia
+
+=== Program
+
+bez modyfikacji: URL tutaj
 

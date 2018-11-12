@@ -94,6 +94,22 @@ temat-a-katalog
 echo "gadatliwość: $v, zamawia: $kto_zleca, odrobaczanie: $d, chmura: $c, temat: $t, katalog: $k"
 
 
+# Struktura, katalog, temat
 cp -r ~/bin/nowy/szkieletSzkolenia "$k"
 mv "$k"/x.adoc "$k"/"$t".adoc
 mv "$k"/x-docinfo.html "$k"/"$t"-docinfo.html
+
+cd "$k"
+# Zamawia
+for f in Bottega Sages Symentis; do
+    if [[ "$f" == "$z" ]]; then
+        echo $f zostaje
+    else rm $f
+    fi
+done
+
+
+# Git
+git init
+git add .
+git commit -m "Szkielet szkolenia stworzony"
