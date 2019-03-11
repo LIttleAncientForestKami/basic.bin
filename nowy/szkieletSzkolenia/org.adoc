@@ -15,7 +15,7 @@ image::LAFK_pl_wSieci.png[]
 
 . audyty kodu, infrastruktury, komponentów, systemu
 . testy i audyty wydajności czy bezpieczeństwa
-. wchodzę w bazy danych, GNU/Linuxy i inne pochodne Unixa
+. wchodzę w bazy danych, GNU/Linuxy, sieci czy bezpiekę
 . programy na zlecenie
 . prelekcje, wykłady tematyczne, warsztaty, szkolenia
 
