@@ -6,12 +6,17 @@ prQ.dat
 nowyRozdzial
 coDalej.sh
 sbt
+
+# ulokowane gdzie indziej
+codziennikAkademii
+
+# na razie ignorowane
+3minuty
+ubuntu/3minuty.sh
+html5/
+
 # wygenerowane przez IdeaToolbox zatem...
 idea
-
-# curl appropriate one instead
-
-
 
 # Created by http://www.gitignore.io
 
@@ -20,7 +25,6 @@ idea
 
 # KDE directory preferences
 .directory
-
 
 ### vim ###
 [._]*.s[a-w][a-z]
