@@ -1,0 +1,7 @@
+Which thread eats most CPU and how much is most?
+------------------------------------------------
+
+Script uses `jstack` to obtain a thread dump and greps it for native thread id.
+Native thread id is obtained via `ps`, `sort`, `uniq` and `tail`. And number of `|`. 
+
+Along the line, what system returns is **LWP**, which is decimal and thus needs to be converted to hex.

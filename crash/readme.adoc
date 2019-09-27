@@ -1,0 +1,6 @@
+= If you crashed
+
+your system - or vice-versa, I'm not a judgmental person ;-) - here you have some helpers.
+
+Scripts that help during system crashes.
+Backup, hardware info obtaining, disks recovery...
