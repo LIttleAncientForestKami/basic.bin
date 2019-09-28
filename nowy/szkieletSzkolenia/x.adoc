@@ -6,6 +6,7 @@
 :hardbreaks:
 :icons: font
 :imagesdir: ./img/
+:favicon: {imagesdir}/favicon.ico
 :docinfo:
 :source-highlighter: highlightjs
 :backend: revealjs
