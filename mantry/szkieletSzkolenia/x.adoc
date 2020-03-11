@@ -15,6 +15,12 @@
 
 Hasłowy opis szkolenia
 
+== Start
+
+once upon a time - ważna opowieść dla ludzi
+mind-blowing fact about x
+question to audience about their problem which this solves
+
 include::org.adoc[]
 
 include::mods/wpro.adoc[]

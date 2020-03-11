@@ -1,1 +1,0 @@
-./nowy/jsPro.sh

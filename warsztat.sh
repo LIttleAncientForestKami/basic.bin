@@ -1,1 +1,1 @@
-./nowy/warsztat.sh
+./mantry/warsztat.sh

@@ -1,0 +1,15 @@
+[background-color="grey"]
+== Nota prawna
+
+Przeznaczenie treści i ograniczenie odpowiedzialności.
+
+[background-color="grey"]
+=== Przeznaczanie treści.
+
+Treści ze szkolenia służą wyłącznie celom informacyjnym oraz edukacyjnym. Ani ja ani Sages nie ponosimy odpowiedzialności za ewentualne niezgodne z prawem wykorzystanie zdobytej wiedzy lub udostępnionych materiałów. Stanowczo odradza się działań niezgodnych z prawem.
+
+[background-color="grey"]
+=== Ograniczenie odpowiedzialności.
+
+Dołożyłem starań, aby zapewnić możliwie wysoką jakość i rzetelność treści szkoleniowych. Nie odpowiadam jednak za błędy, aktualność oraz kompletność prezentowanych (w trakcie szkolenia lub w materiałach) informacji. Nie odpowiadam za ewentualne szkody poniesione w wyniku wykorzystania przekazanej wiedzy.
+
