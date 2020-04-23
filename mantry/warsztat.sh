@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #set -x
+SZKIELET="~/bin/mantry/szkieletSzkolenia"
 
 instrukcja() {
     echo "Skrypt tworzy strukturę do nowego warsztatu. Instrukcja obsługi:"
@@ -95,7 +96,7 @@ echo "gadatliwość: $v, zamawia: $kto_zleca, odrobaczanie: $d, chmura: $c, tema
 
 
 # Struktura, katalog, temat
-cp -r ~/bin/nowy/szkieletSzkolenia "$k"
+cp -r "$SZKIELET" "$k"
 mv "$k"/x.adoc "$k"/"$t".adoc
 mv "$k"/x-docinfo.html "$k"/"$t"-docinfo.html
 
@@ -104,7 +105,7 @@ cd "$k"
 for f in Bottega Sages Symentis; do
     if [[ "$f" == "$z" ]]; then
         echo $f zostaje
-    else rm $f
+    else rm $f.adoc
     fi
 done
 
