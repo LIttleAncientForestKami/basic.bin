@@ -1,0 +1,16 @@
+=== O mnie
+
+image::LAFK_pl.png[]
+
+=== Ja w sieci
+
+image::LAFK_pl_wSieci.png[]
+
+=== Zlecenia
+
+. audyty kodu, infrastruktury, komponentów, systemu
+. testy i audyty wydajności czy bezpieczeństwa
+. wchodzę w bazy danych, GNU/Linuxy, sieci czy bezpiekę
+. programy na zlecenie
+. prelekcje, wykłady tematyczne, warsztaty, szkolenia
+
