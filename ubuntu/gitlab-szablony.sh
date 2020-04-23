@@ -28,7 +28,7 @@ cat << EOF > .gitlab/issue_templates/Błąd.md
 4. Co się powinno stać (oczekiwany rezultat)?
 5. Istotne załączniki (dzienniki, zrzuty ekranu)
 
-Użyj ```bloków kodu``` to formatowania, via trzy grawisy: \` wokół kodu.
+Użyj \`\`\`bloków kodu\`\`\` do formatowania, via trzy grawisy: \` wokół kodu.
 
 ## Poprawka
 Jak rzecz poprawić? 
@@ -50,7 +50,7 @@ cat << EOF > .gitlab/issue_templates/Bug.md
 4. What should have happened (expected and correct behaviour)
 5. Relevant attachments (logs, screenshots)
 
-Use ```code blocks``` to format, you get them by triple gravis character: \`.
+Use \`\`\`code blocks\`\`\` to format, you get them by triple gravis character: \`.
 
 ## Fixes
 
@@ -91,4 +91,4 @@ MVP :: Minimum Viable Product, usually first version that you would call "presen
 
 EOF
 
-tree
+tree -a .gitlab

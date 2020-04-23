@@ -1,0 +1,1 @@
+./ubuntu/gitlab-szablony.sh
