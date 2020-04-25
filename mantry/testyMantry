@@ -1,0 +1,32 @@
+./mantra.sh -t
+./mantra.sh -n aba -t
+./mantra.sh -naba -9 -t
+./mantra.sh --nazwa=aba -8 -t
+./mantra.sh -nbaba -8 -t
+./mantra.sh --nazwa aba --jdk8 -t
+./mantra.sh -8n aba -8 -t
+./mantra.sh -n=aba -8 -t
+./mantra.sh -nazwa=aba -8 -t
+./mantra.sh -naba -8 -t
+./mantra.sh -nj8 -t
+./mantra.sh -n uu -8 -x -t
+./mantra.sh -8x -t
+./mantra.sh -x8n x8n -t
+./mantra.sh --nazwa czarymary --repo --set-x-bash -8 -t
+./mantra.sh --nazwa czarymary --repo --set-x-bash --jdk8 -t
+./mantra.sh --nazwa czarymary --repo -x --jdk8 -t
+./mantra.sh --nazwa czarymary -r --set-x-bash -8 -t
+./mantra.sh --nazwa czarymary -rx8 -t
+./mantra.sh -rx8n czarymary -t
+./mantra.sh --nazwa czarymary -rx8n czarymary2 -t
+./mantra.sh -rx8n czarymary2 -t
+./mantra.sh -rkn czarymary2 -t
+./mantra.sh -n czarymary2 -r -t
+./mantra.sh -krxn8 czarymary2 -t
+./mantra.sh -xn8 czarymary2 -t
+./mantra.sh -nczarymary2 -t
+./mantra.sh -kn coś -t
+./mantra.sh -q -t
+./mantra.sh -qab --dziwnota -t
+./mantra.sh -n="jakaś nazwa" --niematakiej -k -r -t
+./mantra.sh -nazwa="jakaś nazwa" --niematakiej -k -r -t
