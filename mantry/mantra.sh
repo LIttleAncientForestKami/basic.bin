@@ -2,25 +2,25 @@
 set +x
 function pomoc() {
     echo "Mantra: stawia projekt. JDK, Maven, Git, itp. Autor: Tomasz LAFK_pl Borek"
-    echo """Przyjmuje długie i krótkie opcje, także mieszane.
+    echo "Przyjmuje długie i krótkie opcje, także mieszane.
 Składnia:
 
 mantra - domyślne ustawienia (JDK11, Maven 3, katalog nowyProjekt w bieżącym katalogu, .git, .gitignore, pierwsza migawka z readme i strukturą projektową).
 
 mantra -n nazwaProjektuIJegoKatalogu (reszta ustawień - domyślna)
 
-mantra --nazwa=MyProject --bazacom/firma/tjb --repo --kod postawi projekt w Kodzie, bez repo, podstawowe pakiety to com.firma.tjb, nazwa myProject, reszta domyślnie.
+mantra --nazwa=MyProject --bazacom/firma/tjb --repo 0 --kod postawi projekt w Kodzie, bez repo, podstawowe pakiety to com.firma.tjb, nazwa myProject, reszta domyślnie.
 
 Długie opcje można pisać na którykolwiek z 3 sposobów tu prezentowanych: --nazwaAba --nazwa Aba --nazwa=Aba
 Krótkie opcje można mieszać: -x8k -k8x, kolejność nie ma znaczenia, wyjąwszy:
 
-1. p - pomoc kończy działanie programu.
+1. p lub t - pomoc lub testy kończą działanie programu.
 2. opcje z parametrami, następny element powinien być parametrem!
 3. x - informacje z tej opcji spływają od momentu jej sparsowania - im szybciej, tym więcej.
 
 Opcje: 
         -x | --set-x-bash -- drukuje komendy przed ich wykonaniem, diagnostyczna
-        -r | --repo     -- ustawia repozytorium na: brak, GitHub, GitLab (domyślnie), BitBucket
+        -r | --repo     -- ustawia repozytorium na: 0 (bez, brak), GitHub, GitLab (domyślnie), BitBucket
         -n | --nazwa    -- precyzuje nazwę projektu i katalogu projektowego
         -b | --baza     -- określa pakiet bazowy, domyślnie pl/lafk
         -8 | --jdk8     -- jeśli nie 8, to 11 (domyślne)
@@ -34,19 +34,19 @@ RDZ:
 # lab, hub, bb, z odpowiednim 'origin' i zdalnym repo
 # strona mana! :D :D :D
 # kompletowanie składni :D <3 :O
-"""
+"
 }
 
 function test_opcji() {
     # powtórka dla testu
     GDZIE="${GDZIE}/${NAZWA}"
     # test właściwy
-    echo $0 $OPCJE
-    echo Nazwa: $NAZWA JDK: $JDK BAZA: $BAZA GDZIE: $GDZIE REPO: $REPO GIST: $GIST
+    echo "$0" "$OPCJE"
+    echo Nazwa: "$NAZWA" JDK: "$JDK" BAZA: "$BAZA" GDZIE: "$GDZIE" REPO: "$REPO" GIST: "$GIST"
     exit 0
 }
 
-OPCJE=`getopt -o xn:8kb:r:pt --long set-x-bash,nazwa:,jdk8,kod,baza:,repo:,pomoc,test -n 'mantra' -- "$@"`
+OPCJE=$(getopt -o xn:8kb:r:pt --long set-x-bash,nazwa:,jdk8,kod,baza:,repo:,pomoc,test -n 'mantra' -- "$@")
 
 eval set -- "$OPCJE"
 NAZWA="nowyProjekt"
@@ -85,32 +85,38 @@ function maven() {
 }
 
 function repo() {
-    curl -L -s https://www.gitignore.io/api/java,maven,linux,intellij,vim >> .gitignore
+
+    case "$REPO" in
+        0 | bez | brak ) return;;
+        gl | gitlab | GitLab | GL ) echo GitLab;;
+        * ) echo "mantra: Nani?! Takiego repo nie znam! ${REPO}"; return;;
+    esac
     # patrz na: https://github.com/toptal/gitignore.io/issues/360 i 186#issuecomment-249601023, przekomplikowali
     # dużo tekstu w tym gi a różnica dla intellij+all, intellij+iml, intellij niewielka, zrobienie .idea/ i *.iml lepsze. Jak nie Intellij, to JetBrains (+all/iml itp.)
-    echo ".idea/" >> .gitignore
-    echo "*.iml" >> .gitignore
+    { curl -L -s https://www.gitignore.io/api/java,maven,linux,intellij,vim; echo ".idea/"; echo "*.iml"; } >> .gitignore 
     git init
     git add .
     # RDZ: wiadomość wieloliniowa może? czyli z pliku?
     git-quote "Mantra projektu wg LAFK_pl
-JDK $JDK, $REPO, Maven, readme i .gitignore 
+JDK ${JDK}, ${REPO}, Maven, readme i .gitignore 
 Good POM wg LAFK_pl: https://lafkblogs.wordpress.com/2019/09/29/good-pom/"
 }
 
 maven
 cat << EOF > readme.adoc
 = About $NAZWA
+:author: Tomasz @LAFK_pl Borek
 
-What is it:
-Purpose: 
-Author: @LAFK_pl
+$NAZWA :: ?
 
-== Launching
+[TIP]
+.To launch / By uruchomić
+----
 
-1. Prerequisites: JDK $JDK, Debian-derivatives, Maven 3
-2. Setup: nothing aside from prerequisites
-3. Launch: \`mvn clean install; cd target; java -jar $NAZWA.jar #or $NAZWA-versionNumbers.jar\`
+1. Prerequisites / Prerekwizyty: JDK $JDK, Debian or it's derivatives / Debiana lub pochodnej, Maven 3, 
+2. Setup: nothing aside from prerequisites / Instalacja: nic więcej niż prerekwizyty
+3. \`mvn clean verify; cd target; java -jar $NAZWA.jar # $NAZWA-versionNumbers.jar\`
+----
 
 EOF
 
