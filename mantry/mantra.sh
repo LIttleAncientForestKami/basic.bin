@@ -29,8 +29,6 @@ Opcje:
         -t | --test     -- testuje przekaz opcji, diagnostyczna (kończy działanie programu).
 
 RDZ:
-# większe projekty: KOD, reszta jak leci, tmp czy gdziekolwiek
-# git lub nie
 # lab, hub, bb, z odpowiednim 'origin' i zdalnym repo
 # strona mana! :D :D :D
 # kompletowanie składni :D <3 :O
