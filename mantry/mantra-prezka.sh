@@ -17,7 +17,7 @@ echo '*.html' >> .gitignore
 mkdir img mods
 echo "Kopiuję pliki"
 cp ~/bin/mantry/szkieletSzkolenia/img/{favicon.ico,LAFK_pl.png,LAFK_pl_wSieci.png,question-mark.jpg} img
-cp ~/bin/mantry/szkieletSzkolenia/{x.adoc,x-docinfo.html,AdocHelp.adoc,przypominajka.sh} .
+cp ~/bin/mantry/szkieletSzkolenia/{x.adoc,x-docinfo.html,przypominajka.sh} .
 cp ~/bin/mantry/szkieletSzkolenia/mods/oMnie.adoc mods
 echo "Dostosowuję pliki prezki wg nadanej nazwy: ${NAME}"
 mv x.adoc ${NAME}.adoc

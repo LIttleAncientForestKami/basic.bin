@@ -48,7 +48,7 @@ OPCJE=$(getopt -o xn:8kb:r:pt --long set-x-bash,nazwa:,jdk8,kod,baza:,repo:,pomo
 
 eval set -- "$OPCJE"
 NAZWA="nowyProjekt"
-JDK="11"; GIST="00658d664edeef427c295c15eb353728cbbe8f05"
+JDK="11"; GIST="8b152e8379acb403c65afa6bd7127c022cff7205"
 BAZA="pl/lafk/"
 REPO=GitLab
 GDZIE=$(pwd)
