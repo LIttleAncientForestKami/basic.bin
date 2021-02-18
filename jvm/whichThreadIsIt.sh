@@ -16,4 +16,9 @@ THREAD16=$(printf '%x\n' $THREAD10)
 
 JAVA_LINE=$(jstack $1 | grep $THREAD16)
 echo "OS data (thread, CPU usage %): " $THREAD_LINE
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
 echo "Java thread: " $JAVA_LINE
