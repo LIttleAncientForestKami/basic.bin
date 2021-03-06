@@ -1,5 +1,5 @@
 # LAFK added:
-exportToken
+exportToken*
 nowy/szkieletSerwera.sh
 szkieletSerwera.sh
 prQ.dat
@@ -11,7 +11,7 @@ sbt
 codziennikAkademii
 
 # na razie ignorowane
-3minuty
+3minuty*
 ubuntu/3minuty.sh
 html5/
 
