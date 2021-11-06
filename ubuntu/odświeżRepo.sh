@@ -1,4 +1,9 @@
 #!/bin/bash
+# Odświeża repozyty i pokazuje je via git instaweb
+# Przydaje się do tego wpis w crontabie:
+# odśwież repo by Adam miał nowe rzeczy do przeglądu w instaPrzeglądzie
+#*/30 11-17 28 9 * /home/tammo/bin/odświeżRepo.sh /home/tammo/Kod/Akademia/egzamin-biletomat
+
 set -e
 REPO=${1:-$(pwd)}
 echo $REPO
