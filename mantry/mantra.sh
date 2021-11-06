@@ -5,14 +5,14 @@ function pomoc() {
     echo "Przyjmuje długie i krótkie opcje, także mieszane.
 Składnia:
 
-mantra - domyślne ustawienia (JDK11, Maven 3, katalog nowyProjekt w bieżącym katalogu, .git, .gitignore, pierwsza migawka z readme i strukturą projektową).
+mantra - domyślne ustawienia (JDK17, Maven 3.8, katalog nowyProjekt w bieżącym katalogu, .git, .gitignore, pierwsza migawka z readme i strukturą projektową).
 
 mantra -n nazwaProjektuIJegoKatalogu (reszta ustawień - domyślna)
 
 mantra --nazwa=MyProject --bazacom/firma/tjb --repo 0 --kod postawi projekt w Kodzie, bez repo, podstawowe pakiety to com.firma.tjb, nazwa myProject, reszta domyślnie.
 
 Długie opcje można pisać na którykolwiek z 3 sposobów tu prezentowanych: --nazwaAba --nazwa Aba --nazwa=Aba
-Krótkie opcje można mieszać: -x8k -k8x, kolejność nie ma znaczenia, wyjąwszy:
+Krótkie opcje można mieszać: -xk -kx, kolejność nie ma znaczenia, wyjąwszy:
 
 1. p lub t - pomoc lub testy kończą działanie programu.
 2. opcje z parametrami, następny element powinien być parametrem!
@@ -23,7 +23,7 @@ Opcje:
         -r | --repo     -- ustawia repozytorium na: 0 (bez, brak), GitHub, GitLab (domyślnie), BitBucket
         -n | --nazwa    -- precyzuje nazwę projektu i katalogu projektowego
         -b | --baza     -- określa pakiet bazowy, domyślnie pl/lafk
-        -8 | --jdk8     -- jeśli nie 8, to 11 (domyślne)
+        -j | --jdk     -- JDK 8, 11 lub 17 (domyślne)
         -k | --kod      -- użycie tej opcji umieści projekt w Kodzie, razem z większymi projektami, pominięcie utworzy tam gdzie wywołano skrypt
         -p | --pomoc    -- wyświetli tę wiadomość i zakończy działanie programu.
         -t | --test     -- testuje przekaz opcji, diagnostyczna (kończy działanie programu).
@@ -32,6 +32,8 @@ RDZ:
 # lab, hub, bb, z odpowiednim 'origin' i zdalnym repo
 # strona mana! :D :D :D
 # kompletowanie składni :D <3 :O
+# Docker
+# Colours in mantra printouts
 "
 }
 
@@ -44,14 +46,29 @@ function test_opcji() {
     exit 0
 }
 
-OPCJE=$(getopt -o xn:8kb:r:pt --long set-x-bash,nazwa:,jdk8,kod,baza:,repo:,pomoc,test -n 'mantra' -- "$@")
+OPCJE=$(getopt -o xn:j:kb:r:pt --long set-x-bash,nazwa:,jdk:,kod,baza:,repo:,pomoc,test -n 'mantra' -- "$@")
 
 eval set -- "$OPCJE"
+# opcje domyślne są ustawione tutaj
 NAZWA="nowyProjekt"
-JDK="11"; GIST="8b152e8379acb403c65afa6bd7127c022cff7205"
+JDK="17"; GIST="9dd9247ad33a84adeef7bfe16f7ea6b1e475c878"
 BAZA="pl/lafk/"
 REPO=GitLab
 GDZIE=$(pwd)
+
+# POMy dla danych JDK
+function gist() {
+    case "$1" in
+        8) JDK="1.8" GIST="45db276f570fcca357fbcf36b6209517c69c6427"; return;;
+        11) JDK="11"; GIST="8b152e8379acb403c65afa6bd7127c022cff7205"; return;;
+        *) return;;
+    esac
+}
+
+function kod() {
+    GDZIE="/home/tammo/Kod"
+    echo Mantra: przestawiam katalog na "$GDZIE"
+}
 
 while true; do
     case "$1" in
@@ -59,24 +76,24 @@ while true; do
         -r | --repo ) REPO="$2"; shift 2;;
         -n | --nazwa ) NAZWA="$2"; shift 2;;
         -b | --baza ) BAZA="$2"; shift 2;;
-        -8 | --jdk8 ) JDK="1.8"; GIST="45db276f570fcca357fbcf36b6209517c69c6427"; shift;;
-        -k | --kod ) GDZIE="/home/tammo/Kod"; shift;;
+        -j | --jdk ) gist "$2"; shift 2;;
+        -k | --kod ) kod; shift;;
         -p | --pomoc ) pomoc; exit 0;;
         -t | --test ) test_opcji; exit 0;;
         -- ) shift; break;;
         * ) echo "mantra: Nani?! Mamy nieobsłużoną kombinację?! ${1} ${2}"; break;;
     esac
 done
-GDZIE="${GDZIE}/${NAZWA}"
-
+KAT="${GDZIE}/${NAZWA}"
+echo mantra: ustawiam katalog apki na "$KAT"
 
 function pom() {
     curl -L -s https://gist.githubusercontent.com/LIttleAncientForestKami/c9b185c123fc97f6022861f645766aa5/raw/${GIST}/pom.xml > pom.xml
 }
 
 function maven() {
-    mkdir -p "$NAZWA"/src/{main,test}/{java,resources}/"$BAZA"
-    cd "$NAZWA" || exit
+    mkdir -p "$KAT"/src/{main,test}/{java,resources}/"$BAZA"
+    cd "$KAT" || exit
     pom
     sed -i s/#NAME/"$NAZWA"/g pom.xml
     sed -i s/#APP/"$NAZWA"/g pom.xml
@@ -96,7 +113,7 @@ function repo() {
     git add .
     # RDZ: wiadomość wieloliniowa może? czyli z pliku?
     git-quote "Mantra projektu wg LAFK_pl
-JDK ${JDK}, ${REPO}, Maven, readme i .gitignore 
+JDK ${JDK}, ${REPO}, Maven 3.8, readme i .gitignore 
 Good POM wg LAFK_pl: https://lafkblogs.wordpress.com/2019/09/29/good-pom/"
 }
 
