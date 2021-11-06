@@ -1,7 +1,11 @@
 #!/bin/bash
 
 #4 crontab:
-export "$(grep -E -z DBUS_SESSION_BUS_ADDRESS /proc/"$(pgrep -u $LOGNAME xfce4-session)"/environ)"
+pid=$(pgrep -u $LOGNAME xfce4-session)
+xfce_session_env="/proc/$pid/environ"
+to_export=$(strings $xfce_session_env | grep DBUS_SESSION_BUS_ADDRESS)
+export $to_export
+#export "$(grep DBUS_SESSION_BUS_ADDRESS | strings /proc/"$(pgrep -u $LOGNAME xfce4-session)"/environ)"
 
 # Notifications: https://wiki.archlinux.org/index.php/Desktop_notifications
 # Icons: https://specifications.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
