@@ -1,6 +1,10 @@
 #!/bin/zsh
 
-NAME=$1
+if [[ $1 == "-h" || $1 = "-p" || $# = 0 ]]; then
+    echo "Wywołaj $(basename $0) nazwaPrezentacji by mieć taki katalog i w nim pliki prezki, z odowiednim tytułem."
+    exit
+fi
+NAME=${1}
 PROJECT_PATH=/home/tammo/Dokumenty/Prezki
 
 cd $PROJECT_PATH
