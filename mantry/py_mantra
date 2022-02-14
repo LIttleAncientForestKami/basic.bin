@@ -1,0 +1,21 @@
+#!/bin/bash
+
+venv=${2:-"venv"}
+
+usage() {
+    echo "$0 katalog środowisko
+        katalog - katalog w ~/Kod by umieścić tam projekt
+        środowisko - jak venv ma się nazywać, domyślnie venv
+    
+    Powodzenia!"
+}
+
+if [[ $# -lt 2 ]]; then
+    usage
+    exit 1
+fi
+
+mkdir ~/Kod/$1
+cd ~/Kod/$1 || exit 2
+python -m venv $venv
+

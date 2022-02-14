@@ -115,6 +115,16 @@ function repo() {
     git-quote "Mantra projektu wg LAFK_pl
 JDK ${JDK}, ${REPO}, Maven 3.8, readme i .gitignore 
 Good POM wg LAFK_pl: https://lafkblogs.wordpress.com/2019/09/29/good-pom/"
+
+}
+
+function repo_remote() {
+    echo Zdalne repo działa tylko dla GitLaba.
+    case "$REPO" in
+        0 | bez | brak ) return;;
+        gl | gitlab | GitLab | GL ) echo GitLab; git push --set-upstream git@gitlab.com:LAFK_pl/${NAZWA}.git master;;
+        * ) echo "mantra: Nani?! Takiego repo nie znam! ${REPO}"; return;;
+    esac
 }
 
 maven
@@ -139,3 +149,4 @@ repo
 idea pom.xml &
 pwd | xclip -i
 echo mantra: cd Shift Ins
+repo_remote
