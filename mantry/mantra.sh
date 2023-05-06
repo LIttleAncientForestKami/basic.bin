@@ -66,7 +66,7 @@ function gist() {
 }
 
 function kod() {
-    GDZIE="/home/tammo/Kod"
+    GDZIE="$HOME/Kod"
     echo Mantra: przestawiam katalog na "$GDZIE"
 }
 
@@ -140,7 +140,7 @@ $NAZWA :: ?
 
 1. Prerequisites / Prerekwizyty: JDK $JDK, Debian or it's derivatives / Debiana lub pochodnej, Maven 3, 
 2. Setup: nothing aside from prerequisites / Instalacja: nic więcej niż prerekwizyty
-3. \`mvn clean verify; cd target; java -jar $NAZWA.jar # $NAZWA-versionNumbers.jar\`
+3. \`mvn verify; cd target; java -jar $NAZWA.jar # $NAZWA-versionNumbers.jar\`
 ----
 
 EOF
