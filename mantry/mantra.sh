@@ -20,20 +20,16 @@ Krótkie opcje można mieszać: -xk -kx, kolejność nie ma znaczenia, wyjąwszy
 
 Opcje: 
         -x | --set-x-bash -- drukuje komendy przed ich wykonaniem, diagnostyczna
-        -r | --repo     -- ustawia repozytorium na: 0 (bez, brak), GitHub, GitLab (domyślnie), BitBucket
+        -r | --repo     -- ustawia repozytorium na: 0 (bez, brak), GitHub (gh, GH, GitHub), 1 lub gl lub GitLab (domyślnie), BB lub BitBucket
         -n | --nazwa    -- precyzuje nazwę projektu i katalogu projektowego
         -b | --baza     -- określa pakiet bazowy, domyślnie pl/lafk
-        -j | --jdk     -- JDK 8, 11 lub 17 (domyślne)
+        -j | --jdk      -- JDK 8, 11 lub 17 (domyślne)
         -k | --kod      -- użycie tej opcji umieści projekt w Kodzie, razem z większymi projektami, pominięcie utworzy tam gdzie wywołano skrypt
+        -o | --opis     -- opis projektu, do wstawienia do POMa
         -p | --pomoc    -- wyświetli tę wiadomość i zakończy działanie programu.
-        -t | --test     -- testuje przekaz opcji, diagnostyczna (kończy działanie programu).
+        -t | --test     -- testuje przekaz (PRZEKAZ!) opcji, diagnostyczna (kończy działanie programu). DAJ JAKO OSTATNIĄ!
 
-RDZ:
-# lab, hub, bb, z odpowiednim 'origin' i zdalnym repo
-# strona mana! :D :D :D
-# kompletowanie składni :D <3 :O
-# Docker
-# Colours in mantra printouts
+RDZ: sprawdź kwity na GitHubie
 "
 }
 
@@ -42,7 +38,9 @@ function test_opcji() {
     GDZIE="${GDZIE}/${NAZWA}"
     # test właściwy
     echo "$0" "$OPCJE"
-    echo Nazwa: "$NAZWA" JDK: "$JDK" BAZA: "$BAZA" GDZIE: "$GDZIE" REPO: "$REPO" GIST: "$GIST"
+    echo Mantra: Nazwa: "$NAZWA" JDK: "$JDK" BAZA: "$BAZA" GDZIE: "$GDZIE" REPO: "$REPO" GIST: "$GIST"
+    echo Mantra: Test PRZEKAZANIA opcji z oczywistych względów NIE wykonuje całej mantry. Ale!
+    echo Mantra: Jeśli opcję testu dałeś NIE jako ostatnią, to opcje PO NIEJ nie zostaną przetestowane!
     exit 0
 }
 
@@ -53,6 +51,7 @@ eval set -- "$OPCJE"
 NAZWA="nowyProjekt"
 JDK="17"; GIST="9dd9247ad33a84adeef7bfe16f7ea6b1e475c878"
 BAZA="pl/lafk/"
+OPIS="Project Description / Opis projektu"
 REPO=GitLab
 GDZIE=$(pwd)
 
@@ -78,6 +77,7 @@ while true; do
         -b | --baza ) BAZA="$2"; shift 2;;
         -j | --jdk ) gist "$2"; shift 2;;
         -k | --kod ) kod; shift;;
+        -o | --opis ) OPIS="$2"; shift 2;;
         -p | --pomoc ) pomoc; exit 0;;
         -t | --test ) test_opcji; exit 0;;
         -- ) shift; break;;
@@ -97,6 +97,7 @@ function maven() {
     pom
     sed -i s/#NAME/"$NAZWA"/g pom.xml
     sed -i s/#APP/"$NAZWA"/g pom.xml
+    sed -i s/#DESC/"$OPIS"/g pom.xml
 }
 
 function repo() {
@@ -122,7 +123,9 @@ function repo_remote() {
     echo Zdalne repo działa tylko dla GitLaba.
     case "$REPO" in
         0 | bez | brak ) return;;
-        gl | gitlab | GitLab | GL ) echo GitLab; git push --set-upstream git@gitlab.com:LAFK_pl/${NAZWA}.git master;;
+        1 | gl | gitlab | GitLab | GL ) echo GitLab; git push --set-upstream git@gitlab.com:LAFK_pl/${NAZWA}.git master;;
+        2 | gh | github | GitHub | GH ) echo GitHuba jeszcze nie umiem.; return;;
+        3 | bb | bitbucket | BitBucket | BB ) echo BitBucketa jeszcze nie umiem.; return;;
         * ) echo "mantra: Nani?! Takiego repo nie znam! ${REPO}"; return;;
     esac
 }
