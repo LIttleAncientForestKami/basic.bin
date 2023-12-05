@@ -86,9 +86,14 @@ mvn org.codehaus.mojo:license-maven-plugin:add-third-party
 mvn org.codehaus.mojo:license-maven-plugin:comment-style-list
 mvn org.codehaus.mojo:license-maven-plugin:check-file-header - requires orgName and inceptionYear
 
+Do tego dodałbym checker framework - może być lepszy niż spotbugs czy errorprone
+https://checkerframework.org/manual/#installation
+https://central.sonatype.com/artifact/org.checkerframework/checkerframework-maven-plugin/checker-framework-version
+
 LISTA
 
   echo MOŻE...
+  echo https://github.com/rudikershaw/git-build-hook - haki gita z Mavena
   echo https://github.com/revelc/formatter-maven-plugin by formatować kod niezależnie od IDE?
   echo https://vladmihalcea.com/maven-gradle-hibernate-enhance-plugin/ by instrumentować encje JPA/Hibera dla zwiększenia wydajności odczytów i zapisów?
   echo https://github.com/kohsuke/sorcerer/blob/master/src/site/apt/index.apt by robić HTMLe z kodem Jawy i lepszą nawigacją niż JXR?
