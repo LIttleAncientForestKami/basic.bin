@@ -6,8 +6,8 @@ read -p 'Ile tego jest? ' ILE
 REZULTAT=0
 
 case "$MIARA" in
-    jard) REZULTAT=$(bc <<< "$ILE * 0.9144");;
-    stopa) REZULTAT=$(bc <<< "$ILE * 0.3048");;
+    jard|jardy|j) REZULTAT=$(bc <<< "$ILE * 0.9144");;
+    stopa|stopy|s) REZULTAT=$(bc <<< "$ILE * 0.3048");;
     *) echo podano $* a ja znam stopy i jardy; exit 1;;
 esac
 echo $ILE $MIARA na metry: $REZULTAT m
