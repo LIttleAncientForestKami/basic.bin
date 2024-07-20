@@ -33,6 +33,16 @@ RDZ: sprawdź kwity na GitHubie
 "
 }
 
+function komendy() {
+  for k in git git-quote idea curl; do
+    if ! command $k 2>/dev/null 1>&2
+    then
+      printf "Please install $k following the Prerequisites part of the readme" > /dev/stderr
+      exit 1
+    fi
+  done
+}
+
 function test_opcji() {
     # powtórka dla testu
     GDZIE="${GDZIE}/${NAZWA}"
@@ -43,17 +53,6 @@ function test_opcji() {
     echo Mantra: Jeśli opcję testu dałeś NIE jako ostatnią, to opcje PO NIEJ nie zostaną przetestowane!
     exit 0
 }
-
-OPCJE=$(getopt -o xn:j:kb:r:pt --long set-x-bash,nazwa:,jdk:,kod,baza:,repo:,pomoc,test -n 'mantra' -- "$@")
-
-eval set -- "$OPCJE"
-# opcje domyślne są ustawione tutaj
-NAZWA="nowyProjekt"
-JDK="17"; GIST="9dd9247ad33a84adeef7bfe16f7ea6b1e475c878"
-BAZA="pl/lafk/"
-OPIS="Project Description / Opis projektu"
-REPO=GitLab
-GDZIE=$(pwd)
 
 # POMy dla danych JDK
 function gist() {
@@ -68,24 +67,6 @@ function kod() {
     GDZIE="$HOME/Kod"
     echo Mantra: przestawiam katalog na "$GDZIE"
 }
-
-while true; do
-    case "$1" in
-        -x | --set-x-bash ) set -x; shift;;
-        -r | --repo ) REPO="$2"; shift 2;;
-        -n | --nazwa ) NAZWA="$2"; shift 2;;
-        -b | --baza ) BAZA="$2"; shift 2;;
-        -j | --jdk ) gist "$2"; shift 2;;
-        -k | --kod ) kod; shift;;
-        -o | --opis ) OPIS="$2"; shift 2;;
-        -p | --pomoc ) pomoc; exit 0;;
-        -t | --test ) test_opcji; exit 0;;
-        -- ) shift; break;;
-        * ) echo "mantra: Nani?! Mamy nieobsłużoną kombinację?! ${1} ${2}"; break;;
-    esac
-done
-KAT="${GDZIE}/${NAZWA}"
-echo mantra: ustawiam katalog apki na "$KAT"
 
 function pom() {
     curl -L -s https://gist.githubusercontent.com/LIttleAncientForestKami/c9b185c123fc97f6022861f645766aa5/raw/${GIST}/pom.xml > pom.xml
@@ -130,12 +111,44 @@ function repo_remote() {
     esac
 }
 
+
+komendy
+OPCJE=$(getopt -o xn:j:kb:r:pt --long set-x-bash,nazwa:,jdk:,kod,baza:,repo:,pomoc,test -n 'mantra' -- "$@")
+
+eval set -- "$OPCJE"
+# opcje domyślne są ustawione tutaj
+NAZWA="nowyProjekt"
+JDK="17"; GIST="9dd9247ad33a84adeef7bfe16f7ea6b1e475c878"
+BAZA="pl/lafk/"
+OPIS="Project Description | Opis projektu"
+REPO=GitLab
+GDZIE=$(pwd)
+
+
+while true; do
+    case "$1" in
+        -x | --set-x-bash ) set -x; shift;;
+        -r | --repo ) REPO="$2"; shift 2;;
+        -n | --nazwa ) NAZWA="$2"; shift 2;;
+        -b | --baza ) BAZA="$2"; shift 2;;
+        -j | --jdk ) gist "$2"; shift 2;;
+        -k | --kod ) kod; shift;;
+        -o | --opis ) OPIS="$2"; shift 2;;
+        -p | --pomoc ) pomoc; exit 0;;
+        -t | --test ) test_opcji; exit 0;;
+        -- ) shift; break;;
+        * ) echo "mantra: Nani?! Mamy nieobsłużoną kombinację?! ${1} ${2}"; break;;
+    esac
+done
+KAT="${GDZIE}/${NAZWA}"
+echo mantra: ustawiam katalog apki na "$KAT"
+
 maven
 cat << EOF > readme.adoc
 = About $NAZWA
 :author: Tomasz @LAFK_pl Borek
 
-$NAZWA :: ?
+$NAZWA :: $OPIS
 
 [TIP]
 .To launch / By uruchomić
