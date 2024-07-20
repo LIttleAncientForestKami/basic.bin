@@ -265,3 +265,7 @@ From a developer's point of view, the art is in figuring out the important thing
 It's hard enough to find an error in your code when you're looking for it; it's even harder when you've assumed your code is error-free.
     -- Steve McConnell
 %
+If you can't exactly reproduce your software as it was, at some point of it's history, then you aren't taking real advantage of the version control. 
+    -- Dave Farley of Continuous Delivery YT channel 
+
+%
