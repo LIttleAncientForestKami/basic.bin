@@ -269,3 +269,7 @@ If you can't exactly reproduce your software as it was, at some point of it's hi
     -- Dave Farley of Continuous Delivery YT channel 
 
 %
+Luckily, the luminous Liskov leaves us a lesson that loosely limits how we leverage our legacy code. 
+    -- Coderized, How principled coders outperform the competition, SOLID 
+%
+
