@@ -35,9 +35,9 @@ RDZ: sprawdź kwity na GitHubie
 
 function komendy() {
   for k in git git-quote idea curl; do
-    if ! command $k 2>/dev/null 1>&2
+    if ! command -v "$k" >/dev/null 2>&1
     then
-      printf "Please install $k following the Prerequisites part of the readme" > /dev/stderr
+      printf "Please install %s following the Prerequisites part of the readme\n" "$k" >&2
       exit 1
     fi
   done

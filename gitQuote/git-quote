@@ -3,7 +3,7 @@
 #######################################################################
 # git-quote - adds quotations after commit message and calls commit
 #######################################################################
-#  Copyright (C) {2012-2021}  {Tomasz Borek}
+#  Copyright (C) {2012-2025}  {Tomasz Borek}
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -20,48 +20,72 @@
 #
 #######################################################################
 
-TMP=youSeeWhatsAlreadyGone
+TMP=$(mktemp tmp_git_quote.XXXXX)
 DEBUG=0
 
+function usage() {
+  echo "Git quote calls git commit but adds a nice programming quote to your commit message. For fun and... glory?"
+  echo "Usage: `basename $0` [-d] commit_message [file1] [file2] ... [fileN]. No files => git commit -aevF."
+  echo "          -d -> debug, writes to console only, no changes."
+  echo
+  echo "Prerequisites: fortune command."
+  exit 2
+}
+
+function out() {
+  printf "git quote: %s\n" "$1"
+}
+
 function debugAndExit() {
-	if [ $DEBUG -eq 1 ]
-	  then
-	    echo "$1"
-        echo "Commit message was: $(< $TMP)"
-	    rm $TMP
+	if [ "$DEBUG" -eq 1 ]; then
+	    out "$1"
+      out "FULL commit message was:
+$(< $TMP)"
+	    rm "$TMP"
 	    exit 0
 	fi
 }
 
-if [ $# -eq 0 ]
-then
-  echo "Usage: `basename $0` [-d] commit_message [file1] [file2] ... [fileN]. No files => git commit -aevF."
-  echo "          -d -> debug, writes to console only, no changes."
-  exit
-fi
+function prepTmp() {
+  cat << EOF >> "$TMP"
+$1
 
-if [ "$1" == "-d" ]
-then
+$(fortune prQ)
+
+# To ABORT:
+# 1. remove the quote and the text, leaving only lines beginning with #
+# 2. SAVE and QUIT the file - in Vi(m) ESC :wq or Shift+z+z (hold Shift, press z twice)
+EOF
+}
+
+if ! command -v fortune >/dev/null 2>&1; then
+   out "Command fortune is missing. Try sudo apt install fortune. Quote appending impossible, aborting."
+   exit 3
+fi
+if [ $# -eq 0 ]; then
+  usage
+elif [ "$1" == "-h" ]; then
+  usage
+elif [ "$1" == "-d" ]; then
   DEBUG=1
-  set -v
+#  out "Setting verbose script execution in 3...2...1..."
+#  set -v
   shift
 fi
 
-echo "$1 " > $TMP
-echo >> $TMP
-echo >> $TMP
-echo "$(fortune prQ)" >> $TMP
+prepTmp "$1"
 
-if [ $# -eq 1 ]
-then
+if [ $# -eq 1 ]; then
   debugAndExit "Only description given: commit -aevF"
-  git commit -aevF $TMP
+  git commit -aevF "$TMP"
 else
-  shift # skipping commit msg
+  shift # skipping commit msg, I'm fetching it from $TMP later, easier that way and I don't need to pass it now to function and deal with quotes
   debugAndExit "Files given => commit -evF. Params (beside -d and commit message):
     total: $#
     given: $*"
-  git commit -evF $TMP $*
+  # if $@ instead of $* then params with spaces still have spaces, but if I give paths to git quote it's bad IIRC, so $* is left DELIBERATELY WITHOUT quotes
+  git commit -evF "$TMP" $*
 fi
-echo "Exit status is $? Parameters passed were $* . Removing temporary file $TMP"
-rm $TMP
+out "Now removing temporary file $TMP."
+# trap: https://www.linuxjournal.com/content/bash-trap-command
+trap 'rm -f "$TMP"' EXIT
