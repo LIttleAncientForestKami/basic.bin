@@ -24,11 +24,17 @@ TMP=$(mktemp tmp_git_quote.XXXXX)
 DEBUG=0
 
 function usage() {
-  echo "Git quote calls git commit but adds a nice programming quote to your commit message. For fun and... glory?"
-  echo "Usage: `basename $0` [-d] commit_message [file1] [file2] ... [fileN]. No files => git commit -aevF."
-  echo "          -d -> debug, writes to console only, no changes."
-  echo
-  echo "Prerequisites: fortune command."
+  cat << EOF
+Git quote calls git commit but adds a nice programming quote to your commit message. For fun and... glory?
+
+Prerequisites: fortune command, I also recommend that prQ quotes are present on local machine (they are in the repo).
+
+Usage: `basename $0` [-d|-h] commit_message [file1] [file2] ... [fileN]. No files => git commit -aevF.
+
+Options (only short options are handled!):
+    -h - help. Prints this text and exits. Should be the first option.
+    -d - debug. Makes no changes. Only writes to console.
+EOF
   exit 2
 }
 
@@ -61,10 +67,9 @@ EOF
 if ! command -v fortune >/dev/null 2>&1; then
    out "Command fortune is missing. Try sudo apt install fortune. Quote appending impossible, aborting."
    exit 3
-fi
-if [ $# -eq 0 ]; then
+elif [ $# -eq 0 ]; then
   usage
-elif [ "$1" == "-h" ]; then
+elif [ "$1" == "-h" ]; then # $0 -a -h crashes the script as it is now, but I somehow don't assume it will be called so
   usage
 elif [ "$1" == "-d" ]; then
   DEBUG=1
