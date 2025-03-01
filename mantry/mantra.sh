@@ -1,9 +1,10 @@
 #!/bin/bash
 set +x
 function pomoc() {
-    echo "Mantra: stawia projekt. JDK, Maven, Git, itp. Autor: Tomasz LAFK_pl Borek"
-    echo "Przyjmuje długie i krótkie opcje, także mieszane.
-Składnia:
+    cat << EOF
+Mantra: stawia projekt. JDK, Maven, Git, itp. Autor: Tomasz LAFK_pl Borek
+
+Przyjmuje długie i krótkie opcje, także mieszane. Składnia:
 
 mantra - domyślne ustawienia (JDK17, Maven 3.8, katalog nowyProjekt w bieżącym katalogu, .git, .gitignore, pierwsza migawka z readme i strukturą projektową).
 
@@ -30,7 +31,7 @@ Opcje:
         -t | --test     -- testuje przekaz (PRZEKAZ!) opcji, diagnostyczna (kończy działanie programu). DAJ JAKO OSTATNIĄ!
 
 RDZ: sprawdź kwity na GitHubie
-"
+EOF
 }
 
 function komendy() {
